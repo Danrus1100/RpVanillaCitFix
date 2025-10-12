@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.danrus.mvc.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ClientItemInfoLoaderMixin",
+    "SelectItemModelPropertyMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

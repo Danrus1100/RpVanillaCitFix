@@ -3,9 +3,15 @@
   "id": "rp-vanilla-cit-fix",
   "version": "${version}",
   "name": "Rp Vanilla CIT Fix",
-  "description": "",
-  "authors": [],
-  "contact": {},
+  "description": "Fixes vanilla custom item textures (CIT) and model predicates for resource packs in Minecraft 1.21.5+",
+  "authors": [
+    "Danrus110_"
+  ],
+  "contact": {
+    "sources": "https://github.com/Danrus1100/RP-Vanilla-CIT-Fix",
+    "issues": "https://github.com/Danrus1100/RP-Vanilla-CIT-Fix/issues",
+    "discord": "https://discord.gg/Fkp9Tqmm6F"
+  },
   "license": "MIT",
   "icon": "assets/rp-vanilla-cit-fix/icon.png",
   "environment": "client",

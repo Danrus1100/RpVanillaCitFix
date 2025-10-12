@@ -151,7 +151,18 @@ public class MergingResourceManagerWrapper implements ResourceManager {
         JsonElement propElement = model.get("property");
 
         if (propElement.isJsonPrimitive()) {
-            return propElement.getAsString();
+            String propertyType = propElement.getAsString();
+
+            if (propertyType.contains("component")) {
+                if (model.has("component")) {
+                    String component = model.get("component").getAsString();
+                    return propertyType + ":" + component;
+                }
+            }
+
+            return propertyType;
+        } else if (propElement.isJsonObject()) {
+            return propElement.toString();
         }
 
         return "unknown";

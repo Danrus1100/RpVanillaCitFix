@@ -18,6 +18,9 @@
   "entrypoints": {
     "client": [
       "com.danrus.mvc.MultiVanillaCit"
+    ],
+    "modmenu": [
+      "com.danrus.mvc.config.ModMenuIntegration"
     ]
   },
   "mixins": [

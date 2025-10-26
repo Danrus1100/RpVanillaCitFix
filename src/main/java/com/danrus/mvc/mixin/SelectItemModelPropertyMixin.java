@@ -1,5 +1,6 @@
 package com.danrus.mvc.mixin;
 
+import com.danrus.mvc.config.ModConfig;
 import com.mojang.serialization.DataResult;
 import net.minecraft.client.renderer.item.SelectItemModel;
 import net.minecraft.client.renderer.item.properties.select.SelectItemModelProperty;
@@ -18,6 +19,8 @@ public class SelectItemModelPropertyMixin {
             cancellable = true
     )
     private static <T> void mvc$validateCases(List<SelectItemModel.SwitchCase<T>> cases, CallbackInfoReturnable<DataResult<List<SelectItemModel.SwitchCase<T>>>> cir) {
-        cir.setReturnValue(DataResult.success(cases));
+        if (ModConfig.get().enablePackCrashFix) {
+            cir.setReturnValue(DataResult.success(cases));
+        }
     }
 }

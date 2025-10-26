@@ -1,0 +1,15 @@
+{
+  "mvc.config.enable_merging": "Enable Resource Pack Merging",
+  "mvc.config.enable_merging.desc": "When enabled, multiple resource packs that modify the same vanilla item will have their custom item textures (CIT) and model predicates merged together. This allows for a more diverse and customizable experience when using multiple resource packs.",
+
+  "mvc.config.enable_pack_crash_fix": "Enable Resource Pack Crash Fix",
+  "mvc.config.enable_pack_crash_fix.desc": "When enabled, this option fixes crashes that occur when resource packs modify vanilla items. This ensures a smoother experience when using resource packs that alter item appearances or behaviors.",
+
+  "mvc.config.group.general": "General",
+  "mvc.config.group.debug": "Debug",
+
+  "mvc.config.enable_debug": "Enable Debug",
+  "mvc.config.open_exported_folder": "Open Exported Folder",
+  "mvc.config.debug_items": "Debug Items"
+
+}

@@ -51,8 +51,8 @@ damageTiltStrength:1.0
 highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:["vanilla","file/paper_other","file/paper","file/visuals-2.0(1).zip"]
-incompatibleResourcePacks:["file/paper_other","file/paper"]
+resourcePacks:["vanilla","file/GHPack 4.9.5.zip","file/URP 1.0.5 Fixed - GHEdition.zip","fabric"]
+incompatibleResourcePacks:["file/GHPack 4.9.5.zip","file/URP 1.0.5 Fixed - GHEdition.zip"]
 lastServer:
 lang:en_us
 chatVisibility:0
@@ -124,6 +124,7 @@ key_key.hotbar.6:key.keyboard.6
 key_key.hotbar.7:key.keyboard.7
 key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
+key_key.modmenu.open_menu:key.keyboard.unknown
 soundCategory_master:0.18874172185430463
 soundCategory_music:0.0
 soundCategory_record:1.0

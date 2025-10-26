@@ -1,5 +1,6 @@
 package com.danrus.mvc;
 
+import com.danrus.mvc.config.ModConfig;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -139,6 +140,10 @@ public class MergingResourceManagerWrapper implements ResourceManager {
         JsonObject result = new JsonObject();
         result.add("model", chainedModel);
 
+        if (ModConfig.get().enableDebug && ModConfig.get().debugItems.contains(location.toString())) {
+            DebugUtils.ExportDebugItem(location, result);
+        }
+
         byte[] bytes = result.toString().getBytes(StandardCharsets.UTF_8);
         return new Resource(topResource.source(), () -> new ByteArrayInputStream(bytes));
     }
@@ -172,7 +177,6 @@ public class MergingResourceManagerWrapper implements ResourceManager {
         JsonObject currentFallback = baseFallback;
 
         List<PropertyGroup> groupList = new ArrayList<>(groups.values());
-        Collections.reverse(groupList);
 
         for (PropertyGroup group : groupList) {
             JsonObject selectNode = new JsonObject();

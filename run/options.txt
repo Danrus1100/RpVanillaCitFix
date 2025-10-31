@@ -6,7 +6,7 @@ entityDistanceScaling:1.0
 entityShadows:true
 forceUnicodeFont:false
 japaneseGlyphVariants:false
-fov:0.0
+fov:0.525
 fovEffectScale:1.0
 darknessEffectScale:1.0
 glintSpeed:0.5
@@ -52,7 +52,7 @@ highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
 resourcePacks:["vanilla","file/GHPack 4.9.5.zip","file/URP 1.0.5 Fixed - GHEdition.zip","fabric"]
-incompatibleResourcePacks:["file/GHPack 4.9.5.zip","file/URP 1.0.5 Fixed - GHEdition.zip"]
+incompatibleResourcePacks:["file/GHPack 4.9.5.zip","file/URP 1.0.5 Fixed - GHEdition.zip","yet_another_config_lib_v3"]
 lastServer:
 lang:en_us
 chatVisibility:0

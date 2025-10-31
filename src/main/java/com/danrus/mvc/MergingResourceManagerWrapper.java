@@ -10,10 +10,12 @@ import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -43,9 +45,11 @@ public class MergingResourceManagerWrapper implements ResourceManager {
 
         Map<ResourceLocation, Resource> originalMap = this.delegate.listResources(path, filter);
         Map<ResourceLocation, Resource> mergedMap = new TreeMap<>();
+        AtomicBoolean handAnimationOnSwap = new AtomicBoolean(true);
+        AtomicBoolean oversizedInGui = new AtomicBoolean(false);
 
         for(Map.Entry<ResourceLocation, Resource> entry : originalMap.entrySet()) {
-            Resource merged = mergeItemModelResource(entry.getKey(), entry.getValue());
+            Resource merged = mergeItemModelResource(entry.getKey(), entry.getValue(), handAnimationOnSwap, oversizedInGui);
             mergedMap.put(entry.getKey(), merged);
         }
 
@@ -73,11 +77,11 @@ public class MergingResourceManagerWrapper implements ResourceManager {
             return optional;
         }
 
-        Resource merged = mergeItemModelResource(location, optional.get());
+        Resource merged = mergeItemModelResource(location, optional.get(), null, null);
         return Optional.of(merged);
     }
 
-    private Resource mergeItemModelResource(ResourceLocation location, Resource topResource) {
+    private Resource mergeItemModelResource(ResourceLocation location, Resource topResource, @Nullable AtomicBoolean handAnimationOnSwap,  @Nullable AtomicBoolean oversizedInGui) {
         List<Resource> stack = this.delegate.getResourceStack(location);
         if (stack.isEmpty()) {
             return topResource;
@@ -128,6 +132,20 @@ public class MergingResourceManagerWrapper implements ResourceManager {
                         baseFallback = fb.getAsJsonObject();
                     }
                 }
+
+                if (handAnimationOnSwap != null && oversizedInGui != null) {
+                    boolean localHandAnimationOnSwap = modelJson.has("hand_animation_on_swap") &&
+                            modelJson.get("hand_animation_on_swap").getAsBoolean();
+                    if (handAnimationOnSwap.get()) {
+                        handAnimationOnSwap.set(localHandAnimationOnSwap);
+                    }
+
+                    boolean localOversizedInGui = modelJson.has("oversized_in_gui") &&
+                            modelJson.get("oversized_in_gui").getAsBoolean();
+                    if (!oversizedInGui.get()) {
+                        oversizedInGui.set(localOversizedInGui);
+                    }
+                }
             }
         }
 
@@ -139,6 +157,13 @@ public class MergingResourceManagerWrapper implements ResourceManager {
 
         JsonObject result = new JsonObject();
         result.add("model", chainedModel);
+
+        if (handAnimationOnSwap != null) {
+            result.addProperty("hand_animation_on_swap", handAnimationOnSwap.get());
+        }
+        if (oversizedInGui != null) {
+            result.addProperty("oversized_in_gui", oversizedInGui.get());
+        }
 
         if (ModConfig.get().enableDebug && ModConfig.get().debugItems.contains(location.toString())) {
             DebugUtils.ExportDebugItem(location, result);

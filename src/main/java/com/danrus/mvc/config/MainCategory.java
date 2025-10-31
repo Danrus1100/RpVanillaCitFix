@@ -6,6 +6,7 @@ import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.Util;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
@@ -26,7 +27,7 @@ public class MainCategory {
                         () -> ModConfig.get().enableMerging,
                         newVal -> ModConfig.get().enableMerging = newVal
                 )
-//                .description(OptionDescription.createBuilder().text(Component.translatable("mvc.config.enable_merging.desc")).build())
+                .description(OptionDescription.createBuilder().text(Component.translatable("mvc.config.enable_merging.desc")).build())
                 .controller(TickBoxControllerBuilder::create)
                 .build();
 
@@ -37,7 +38,7 @@ public class MainCategory {
                         () -> ModConfig.get().enablePackCrashFix,
                         newVal -> ModConfig.get().enablePackCrashFix = newVal
                 )
-//                .description(OptionDescription.createBuilder().text(Component.translatable("mvc.config.enable_pack_crash_fix.desc")).build())
+                .description(OptionDescription.createBuilder().text(Component.translatable("mvc.config.enable_pack_crash_fix.desc")).build())
                 .controller(TickBoxControllerBuilder::create)
                 .build();
 
@@ -64,6 +65,7 @@ public class MainCategory {
                                         newVal -> ModConfig.get().enableDebug = newVal
                                 )
                                 .controller(TickBoxControllerBuilder::create)
+                                .description(OptionDescription.createBuilder().text(Component.translatable("mvc.config.enable_debug.desc")).build())
                                 .build())
 
 
@@ -76,7 +78,15 @@ public class MainCategory {
                                     }
                                     Util.getPlatform().openPath(path);
                                 }))
+                                .text(Component.translatable("mvc.config.open"))
+                                .build())
 
+                        .option(ButtonOption.createBuilder()
+                                .name(Component.translatable("mvc.config.reload_textures"))
+                                .action(((yaclScreen, buttonOption) -> {
+                                    Minecraft.getInstance().reloadResourcePacks();
+                                }))
+                                .description(OptionDescription.createBuilder().text(Component.translatable("mvc.config.reload_textures.desc")).build())
                                 .build())
 
                         .build())

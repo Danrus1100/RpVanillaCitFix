@@ -1,15 +1,19 @@
 {
   "mvc.config.enable_merging": "Enable Resource Pack Merging",
-  "mvc.config.enable_merging.desc": "When enabled, multiple resource packs that modify the same vanilla item will have their custom item textures (CIT) and model predicates merged together. This allows for a more diverse and customizable experience when using multiple resource packs.",
+    "mvc.config.enable_merging.desc": "When enabled, this option allows the mod to merge multiple resource packs that modify \"Item Definitions\" (such as renaming items, changing conditions, etc.). This helps to ensure that all desired modifications from different resource packs are applied simultaneously.",
 
   "mvc.config.enable_pack_crash_fix": "Enable Resource Pack Crash Fix",
-  "mvc.config.enable_pack_crash_fix.desc": "When enabled, this option fixes crashes that occur when resource packs modify vanilla items. This ensures a smoother experience when using resource packs that alter item appearances or behaviors.",
+    "mvc.config.enable_pack_crash_fix.desc": "When enabled, the game will ignore duplicate selection cases in \"Item Definitions\" to prevent crashes and ensure that other items in the resource pack remain functional.",
 
   "mvc.config.group.general": "General",
   "mvc.config.group.debug": "Debug",
 
   "mvc.config.enable_debug": "Enable Debug",
-  "mvc.config.open_exported_folder": "Open Exported Folder",
-  "mvc.config.debug_items": "Debug Items"
+  "mvc.config.enable_debug.desc": "When enabled, the mod will save the generated \"Item Definitions\" files to a debug folder for inspection and troubleshooting.",
+  "mvc.config.open_exported_folder": "Open Debug Folder",
+  "mvc.config.debug_items": "Debug Items",
 
+  "mvc.config.open": "OPEN",
+  "mvc.config.reload_textures": "Reload Resource Packs",
+  "mvc.config.reload_textures.desc": "Reloads the resource packs to ensure that the debug items appear in the folder."
 }

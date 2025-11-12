@@ -158,12 +158,10 @@ public class MergingResourceManagerWrapper implements ResourceManager {
         JsonObject result = new JsonObject();
         result.add("model", chainedModel);
 
-        if (handAnimationOnSwap != null) {
-            result.addProperty("hand_animation_on_swap", handAnimationOnSwap.get());
-        }
-        if (oversizedInGui != null) {
-            result.addProperty("oversized_in_gui", oversizedInGui.get());
-        }
+        result.addProperty("hand_animation_on_swap", ModConfig.get().handAnimationOnSwap);
+
+        result.addProperty("oversized_in_gui", ModConfig.get().oversizedInGui);
+
 
         if (ModConfig.get().enableDebug && ModConfig.get().debugItems.contains(location.toString())) {
             DebugUtils.ExportDebugItem(location, result);

@@ -55,6 +55,37 @@ public class MainCategory {
                         .build())
 
                 .group(OptionGroup.createBuilder()
+                        .name(Component.translatable("mvc.config.group.resource_pack"))
+
+                        .option(Option.<Boolean>createBuilder()
+
+                                .name(Component.translatable("mvc.config.rp.hand_animation_on_swap"))
+                                .binding(
+                                        true,
+                                        () -> ModConfig.get().handAnimationOnSwap,
+                                        newVal -> ModConfig.get().handAnimationOnSwap = newVal
+                                )
+                                .description(OptionDescription.createBuilder().text(Component.translatable("mvc.config.rp.hand_animation_on_swap.desc")).build())
+                                .controller(TickBoxControllerBuilder::create)
+
+                                .build())
+
+                        .option(Option.<Boolean>createBuilder()
+
+                                .name(Component.translatable("mvc.config.rp.oversized_in_gui"))
+                                .binding(
+                                        false,
+                                        () -> ModConfig.get().oversizedInGui,
+                                        newVal -> ModConfig.get().oversizedInGui = newVal
+                                )
+                                .description(OptionDescription.createBuilder().text(Component.translatable("mvc.config.rp.oversized_in_gui.desc")).build())
+                                .controller(TickBoxControllerBuilder::create)
+
+                                .build())
+
+                        .build())
+
+                .group(OptionGroup.createBuilder()
                         .name(Component.translatable("mvc.config.group.debug"))
 
                         .option(Option.<Boolean>createBuilder()

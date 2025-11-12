@@ -7,11 +7,17 @@
 
   "mvc.config.group.general": "General",
   "mvc.config.group.debug": "Debug",
+  "mvc.config.group.resource_pack": "Resource Packs",
 
   "mvc.config.enable_debug": "Enable Debug",
   "mvc.config.enable_debug.desc": "When enabled, the mod will save the generated \"Item Definitions\" files to a debug folder for inspection and troubleshooting.",
   "mvc.config.open_exported_folder": "Open Debug Folder",
   "mvc.config.debug_items": "Debug Items",
+
+  "mvc.config.rp.hand_animation_on_swap": "Animation on Swap",
+  "mvc.config.rp.hand_animation_on_swap.desc": "Enables/Disables the \"hand_animation_on_swap\" parameter for all items",
+  "mvc.config.rp.oversized_in_gui": "Oversized in GUI",
+  "mvc.config.rp.oversized_in_gui.desc": "Enables/Disables the \"oversized_in_gui\" parameter for all items",
 
   "mvc.config.open": "OPEN",
   "mvc.config.reload_textures": "Reload Resource Packs",

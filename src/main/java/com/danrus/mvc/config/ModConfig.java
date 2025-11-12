@@ -37,6 +37,12 @@ public class ModConfig {
     @SerialEntry
     public List<String> debugItems = new ArrayList<>();
 
+    @SerialEntry
+    public boolean handAnimationOnSwap = true;
+
+    @SerialEntry
+    public boolean oversizedInGui = false;
+
     public static Screen getConfigScreen(Screen parent) {
         return YetAnotherConfigLib.createBuilder()
                 .title(Component.literal("Player Armor Stand"))

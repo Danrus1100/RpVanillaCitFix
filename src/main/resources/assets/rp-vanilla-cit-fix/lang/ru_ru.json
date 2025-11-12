@@ -7,11 +7,18 @@
 
   "mvc.config.group.general": "Общее",
   "mvc.config.group.debug": "Отладка",
+  "mvc.config.group.resource_pack": "Наборы Ресурсов",
 
   "mvc.config.enable_debug": "Включить отладку",
   "mvc.config.enable_debug.desc": "Если включено, то файлы \"Определения предметов\" которые сгенерированы модом будут сохраняться в папку для отладки",
   "mvc.config.open_exported_folder": "Открыть папку отладки",
   "mvc.config.debug_items": "Отладочные предметы",
+
+  "mvc.config.rp.hand_animation_on_swap": "Анимация перекладывания",
+  "mvc.config.rp.hand_animation_on_swap.desc": "Включает/Выключает параметра \"hand_animation_on_swap\" для всех предметов",
+  "mvc.config.rp.oversized_in_gui": "За пределы GUI",
+  "mvc.config.rp.oversized_in_gui.desc": "Включает/Выключает параметра \"oversized_in_gui\" для всех предметов",
+
 
   "mvc.config.open": "ОТКРЫТЬ",
   "mvc.config.reload_textures": "Перезагрузить Наборы Ресурсов",
